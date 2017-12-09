@@ -23,7 +23,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         addFoodBtn.setOnClickListener {
-            val newFood = addFoodTxt.text.toString()
+            val newFood = addFoodTxt.text.toString().trim()         // NEW
+            if (newFood.isBlank()) return@setOnClickListener        // NEW
+
             foodList.add(newFood)
             addFoodTxt.text.clear()
             println(foodList)
